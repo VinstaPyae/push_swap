@@ -73,7 +73,7 @@ void	radix_sort(t_stacks *ary)
 
 	bit_size = 0;
 	size = ary->a_size;
-	while (size > 1 && bit_size++)
+	while (size > 1 && ++bit_size)
 		size /= 2;
 	i = -1;
 	while (++i <= bit_size)

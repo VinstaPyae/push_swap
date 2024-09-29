@@ -24,8 +24,8 @@ void		radix_sort(t_stacks *ary);
 void		fill_stack_a(t_stacks *ary);
 void		create_index_num(t_stacks *ary);
 void		create_array(int ac, char *av[], t_stacks *ary);
-void		check_stack_a(t_stacks *ary, int i);
 void		mem_error_handle(t_stacks *s, char *msg);
+void		check_stack_a(t_stacks *ary, int i);
 int		ft_atoi_list(const char *s, t_stacks *ary);
 int		is_array_sorted(t_stacks *ary);
 

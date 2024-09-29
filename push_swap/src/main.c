@@ -1,19 +1,19 @@
 #include "push_swap.h"
 
-void	mem_error_handle(t_stacks *s, char *msg)
+void	mem_error_handle(t_stacks *ary, char *msg)
 {
 	if (msg)
 		write(2, msg, ft_strlen(msg));
-	if (s != NULL)
+	if (ary != NULL)
 	{
-		if (s->a != NULL)
-			free(s->a);
-		if (s->b != NULL)
-			free(s->b);
-		if (s->total_num != NULL)
-			free(s->total_num);
-		if (s != NULL)
-			free(s);
+		if (ary->a != NULL)
+			free(ary->a);
+		if (ary->b != NULL)
+			free(ary->b);
+		if (ary->total_num != NULL)
+			free(ary->total_num);
+		if (ary != NULL)
+			free(ary);
 	}
 	exit(1);
 }

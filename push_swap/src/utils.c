@@ -81,8 +81,9 @@ void	check_stack_a(t_stacks *ary, int i)
 			j = i + 1;
 			while ( j < ary->a_size)
 			{
-				if (ary->a[i] == ary->a[j++])
+				if (ary->a[i] == ary->a[j])
 					mem_error_handle(ary, "Error\n");
+				j++;
 			}
 			i++;
 		}
