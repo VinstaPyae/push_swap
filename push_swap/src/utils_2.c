@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pzaw <pzaw@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/04 17:10:19 by pzaw              #+#    #+#             */
+/*   Updated: 2024/10/04 17:10:19 by pzaw             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	swap(char *str, int *array, int size)
@@ -5,7 +17,7 @@ void	swap(char *str, int *array, int size)
 	int	tmp;
 
 	if (size <= 0)
-		return;
+		return ;
 	tmp = array[0];
 	array[0] = array[1];
 	array[1] = tmp;
@@ -19,7 +31,7 @@ void	push(char *str, t_stacks *ary)
 	if (ft_strncmp(str, "pa", 3) == 0)
 	{
 		if (ary->b_size <= 0)
-			return;
+			return ;
 		tmp = ary->b[0];
 		ft_memmove(ary->a + 1, ary->a, sizeof(int) * ary->a_size);
 		ary->a[0] = tmp;
@@ -46,7 +58,7 @@ void	rotate(int *array, int size, char *dir, char *ab)
 	int	tmp;
 
 	if (size < 0)
-		return;
+		return ;
 	if (ft_strncmp(dir, "up", 3) == 0)
 	{
 		tmp = array[0];

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pzaw <pzaw@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/04 17:04:38 by pzaw              #+#    #+#             */
+/*   Updated: 2024/10/04 17:04:38 by pzaw             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	mem_error_handle(t_stacks *ary, char *msg)
@@ -33,11 +45,11 @@ static int	check_arg(int ac, char **av)
 			return (1);
 		while (av[i][j] != '\0')
 		{
-			if (!(ft_isdigit(av[i][j])) && av[i][j] != ' ' 
-				&& av[i][j] != '-' && av[i][j] != '+')
+			if (!(ft_isdigit(av[i][j])) && av[i][j] != ' '
+			&& av[i][j] != '-' && av[i][j] != '+')
 				return (1);
-			if ((av[i][j] == '-' || av[i][j] == '+') 
-				&& (!av[i][j + 1] || av[i][j + 1] == ' '))
+			if ((av[i][j] == '-' || av[i][j] == '+')
+			&& (!av[i][j + 1] || av[i][j + 1] == ' '))
 				return (1);
 			j++;
 		}
@@ -51,7 +63,7 @@ static void	put_array_value(int ac, char *av[], t_stacks *ary)
 	char	*tmp2;
 	int		i;
 
-	i =  0;
+	i = 0;
 	tmp2 = ft_strdup("");
 	while (++i < ac && av[i] != NULL)
 	{
@@ -76,9 +88,10 @@ static void	put_array_value(int ac, char *av[], t_stacks *ary)
 int	main(int ac, char *av[])
 {
 	t_stacks	*ary;
+
 	if (check_arg(ac, av))
 	{
-		ft_putstr_fd("Error\n", 1);
+		ft_putstr_fd("Input Error\n", 1);
 		return (0);
 	}
 	ary = malloc(sizeof(t_stacks));
