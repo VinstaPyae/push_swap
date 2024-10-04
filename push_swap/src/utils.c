@@ -69,27 +69,28 @@ void	fill_stack_a(t_stacks *ary)
 	free(tmp);
 }
 
-void	check_stack_a(t_stacks *ary, int i)
+int	check_stack_a_dup(t_stacks *ary)
 {
+	int	i;
 	int	j;
 
+	i = 0;
 	j = 0;
-	if (i == 0)
+	while (i < ary->a_size)
 	{
-		while (i < ary->a_size)
+		j = i + 1;
+		while ( j < ary->a_size)
 		{
-			j = i + 1;
-			while ( j < ary->a_size)
+			if (ary->a[i] == ary->a[j])
 			{
-				if (ary->a[i] == ary->a[j])
-					mem_error_handle(ary, "Error\n");
-				j++;
+				mem_error_handle(ary, "Error\n");
+				return (1);
 			}
-			i++;
+			j++;
 		}
+	i++;
 	}
-	if (is_array_sorted(ary))
-		mem_error_handle(ary, NULL);
+	return (0);
 }
 
 void	create_index_num(t_stacks *ary)
@@ -119,4 +120,3 @@ void	create_index_num(t_stacks *ary)
 		ary->a[i] = num_a[i];
 	free(num_a);
 }
-

@@ -87,16 +87,11 @@ int	main(int ac, char *av[])
 	create_array(ac, av, ary);
 	put_array_value(ac, av, ary);
 	fill_stack_a(ary);
-	check_stack_a(ary, 0);
+	if (check_stack_a_dup(ary))
+		return (0);
 	create_index_num(ary);
-	if (ary->a_size == 2 && ary->a[0] > ary->a[1])
-		swap("sa", ary->a, ary->a_size);
-	else if (ary->a_size == 3)
-		sort_three_num(ary);
-	else if (ary->a_size == 4 || ary->a_size == 5)
-		sort_four_five_num(ary);
-	else
-		radix_sort(ary);
-	check_stack_a(ary, 1);
+	radix_sort(ary);
+	if (is_array_sorted(ary))
+		mem_error_handle(ary, NULL);
 	return (0);
 }
