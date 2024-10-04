@@ -74,9 +74,12 @@ void	fill_stack_a(t_stacks *ary)
 	tmp = ft_split(ary->total_num, ' ');
 	while (tmp[i] != NULL && tmp[i][0] != '\0')
 	{
-		ary->a[j++] = ft_atoi_list(tmp[i], ary);
+		ary->a[j] = ft_atoi_list(tmp[i], ary);
+		if (ary->a[j] > 2147483647 || ary->a[j] < -2147483648)
+			mem_error_handle(ary, "Error\n");
 		free(tmp[i]);
 		i++;
+		j++;
 	}
 	free(tmp);
 }
@@ -95,7 +98,7 @@ int	check_stack_a_dup(t_stacks *ary)
 		{
 			if (ary->a[i] == ary->a[j])
 			{
-				mem_error_handle(ary, "Duplicate Numbers Error\n");
+				mem_error_handle(ary, "Error\n");
 				return (1);
 			}
 			j++;
